@@ -56,9 +56,10 @@ Across **350 real dictations** measured in production, the mean dictation was
 | 200 dictations/day | 1,160 min | **$10.44** | $15.00 | **$55/yr** |
 | **287 dictations/day** | 1,667 min | **$15.00** | $15.00 | break-even |
 
-Nobody dictates 287 times a day. That is the point: for every realistic workload,
-**Laberbacke is 3–15× cheaper**, and the gap grows the *less* you use it — because a
-subscription charges you for the days you don't talk.
+Nobody dictates 287 times a day. That is the point: at 20–100 dictations a day —
+which covers essentially everyone — **Laberbacke is 3–14× cheaper**, and the gap grows
+the *less* you use it, because a subscription charges you for the days you don't talk.
+Even at a punishing 200 dictations a day you are still ahead.
 
 ---
 
