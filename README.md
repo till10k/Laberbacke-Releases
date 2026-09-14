@@ -10,10 +10,14 @@ at the cursor of whatever app you were already working in. Slack, Gmail, ChatGPT
 Claude, Notes, Terminal, Google Docs, your editor. No window to switch to, no
 "copy the transcript" step, no waiting.
 
-It streams your audio **while you are still talking**, so the transcript is
+When connected, it streams your audio **while you are still talking**, so the transcript is
 essentially finished the moment you release the key.
 
 **Measured on the shipping build: 0.45–0.5 s from key-up to text in the field.**
+
+**No connection? Keep recording.** Completed recordings are saved on your Mac,
+survive app restarts, and are transcribed automatically when the connection and
+your account are ready. Find the finished text in History.
 
 [**⬇ Download the latest release**](../../releases/latest)
 
@@ -35,11 +39,11 @@ directly, per second of speech you actually produce. That is the entire cost mod
 | **Break-even** | You would have to speak **27.8 hours per month** — ~287 dictations *every single day* — before Laberbacke costs as much as Wispr Flow Pro | — |
 | **Metering** | Per-second, billed against your own Google key or your org's | Per-seat |
 | **Where your text lives** | Local SQLite on your Mac, auto-purged after 90 days. Transcript content is **never** logged | Cloud account |
-| **Offline** | Falls back to a **local** on-device model (Parakeet TDT v3, Neural Engine) when the network, quota or key is gone — you still get text | Requires the service |
+| **Offline recordings** | Saves completed audio locally and transcribes it after reconnecting. Pending recordings survive restarts; retry, delete and copy from History. | — |
 | **Text can never be lost** | Hard product rule: if the paste fails, the text is on the clipboard *and* in a card you can click *and* in your history | — |
 | **Bring your own key** | Yes — point it at your own Google API key and the vendor is out of the loop entirely | No |
 | **Self-updating** | Yes, silently, with a SHA-256 check against a signed manifest — and **never** mid-dictation | Yes |
-| **Download size** | **8.7 MB** | — |
+| **Download size** | **19.5 MB** (v0.4.12 DMG) | — |
 
 ### The price math, in full
 
@@ -77,9 +81,9 @@ Every number below was measured on the target machine (Apple Silicon, macOS 26.5
 | **Audio encoding cost** | **6.9 ms of CPU for 12 s of audio** — the encoder is not the bottleneck and never was |
 | **Paste reliability** | **9 of 10 target apps passed**: Gmail, ChatGPT, Claude.ai, Slack, Notes, Google Docs, TextEdit, Terminal, Safari — umlauts and emoji intact in every one |
 | macOS "Tahoe" sender filter | **Never triggered.** All nine went through the fast primary path (`cgEventPost`); the AppleScript fallback was never needed |
-| **Offline fallback accuracy** | Parakeet TDT 0.6b v3: **4.8 % WER** on FLEURS-German, 5.5 % CoVoST, 7.05 % Tuda-De |
+| **Local rescue model accuracy** | Parakeet TDT 0.6b v3: **4.8 % WER** on FLEURS-German, 5.5 % CoVoST, 7.05 % Tuda-De |
 | Real-world dictation length | 350 dictations: median **5.3 s**, mean **11.6 s**, p90 27.1 s, p95 39.6 s |
-| **Download size** | **8.7 MB** |
+| **Download size** | **19.5 MB** (v0.4.12 DMG) |
 
 > **Read the fine print, because we wrote it:** the 0.45–0.5 s figure applies to
 > dictations that run longer than the ~1.0–1.5 s stream setup. A very short dictation
@@ -127,10 +131,17 @@ heuristic and heuristics need an off switch.
 scaffold — XML structure, three building blocks, task last — while preserving your
 wording **character for character**. Toggle it live from the HUD, mid-dictation.
 
-**It falls back to your own Mac.** If both cloud tiers fail — empty quota, no
-network, rejected key — a local model on the Neural Engine transcribes instead. It is
-less accurate and is *never* the default, and the app says "transcribed locally" so
-you always know which one you got.
+**Keep your recordings when the connection drops.** Completed offline recordings
+and recordings affected by temporary transmission failures are saved in a local
+queue. They are processed after reconnecting with the original account, and the
+finished text appears in History. Nothing is pasted into an app you moved to later.
+You can retry or delete recordings individually. The queue is limited to 256 MiB
+and protects recordings after they have finished and been saved successfully;
+a crash during recording or an online request is outside that protection.
+
+**Local rescue remains available for supported processing failures.** When a local
+model on the Neural Engine supplies a transcript, the app says "transcribed locally".
+It is less accurate and is *never* the default.
 
 **It never touches your microphone until you dictate.** Which means your music does
 not stutter every time you open or close the app on AirPods.
