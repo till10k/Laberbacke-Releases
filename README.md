@@ -121,6 +121,8 @@ negated self-corrections ("by Tuesday, no, by Wednesday" → "by Wednesday"). Th
 further rules are deliberately **switched off** because two adversarial test rounds
 found nineteen cases where they destroyed meaning. We shipped the safe ones.
 
+**Reprocess a recording without saying it again.** Add a missing name to your dictionary, then open the dictation in History and choose “Audio neu verarbeiten”, directly above Copy and Delete. New recordings stay locally with their history entry and are removed when that entry is deleted. Older entries without saved audio cannot be reprocessed; another transcription can incur additional usage charges.
+
 **It learns your vocabulary from your corrections.** Fix a word once — names, tools,
 email addresses — and Laberbacke writes it correctly from the next dictation on. The
 *term* travels with the request; the *misrecognition* never leaves your device. Every
@@ -205,10 +207,10 @@ and rolls back if the new one fails to start.
 ## Privacy in one paragraph
 
 Transcription happens in the cloud — that is how you get this speed and this
-accuracy. What *stays* on your Mac: your history (local SQLite, purged after 90
+accuracy. What *stays* on your Mac: your history and saved recordings (local SQLite, purged after 90
 days), your API key (a file only your user account can read), and every
 misrecognition the app has learned from your corrections. **No transcript content and
-no key is ever written to a log.** Deleting your history deletes the text completely;
+no key is ever written to a log.** Deleting your history deletes its text and saved recordings;
 only text-free quantities — seconds, tokens, counts — survive, so your cost total
 stays honest. The full disclosure ships as `DATENSCHUTZ.txt` in every release, and
 you should read it before your first dictation: your dictionary terms travel with
