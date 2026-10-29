@@ -7,7 +7,7 @@ speak, and release it to insert the completed text into your current app.
 Your dictionary, familiar work terms, history and saved recordings stay part
 of the same workflow.
 
-Version 0.6.0 makes **Microsoft MAI-Transcribe-2-Streaming** the shared speech
+Since version 0.6.0, **Microsoft MAI-Transcribe-2-Streaming** is the shared speech
 path. Audio streams directly from your Mac to Azure while you speak. Your
 Laberbacke account supplies a short-lived access token; you do not configure
 or receive the operator's permanent Azure key.
@@ -39,6 +39,9 @@ MAI pricing source: [Microsoft AI](https://microsoft.ai/news/our-first-streaming
 
 ### The details that matter while dictating
 
+* **Keep dictating while usage records are saved.** Version 0.6.1 moves local
+  usage writes off the audio path. A busy database can no longer hold up
+  every audio packet; counts stay ordered and normal shutdown waits for them.
 * **One completed insertion.** Long recordings rotate streaming connections;
   text is released only after all final sections are confirmed. Incomplete
   output is not inserted as if it were the whole recording.
