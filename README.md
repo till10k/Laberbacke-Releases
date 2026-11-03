@@ -7,26 +7,25 @@ speak, and release it to insert the completed text into your current app.
 Your dictionary, familiar work terms, history and saved recordings stay part
 of the same workflow.
 
-Since version 0.6.0, **Microsoft MAI-Transcribe-2-Streaming** is the shared speech
-path. Audio streams directly from your Mac to Azure while you speak. Your
-Laberbacke account supplies a short-lived access token; you do not configure
-or receive the operator's permanent Azure key.
+Since version 0.7.0, **Soniox STT v6** is the shared speech path, using the
+European Union region. Audio streams directly from your Mac while you speak.
+Your Laberbacke account supplies a short-lived, single-use access key; the
+operator's permanent provider key stays on the server.
 
-An administrator can switch the shared default to Gemini Streaming and back
-without another app download. Updated apps check this setting every 15 seconds;
-active dictations finish on their original provider. This is a speech-provider
-switch, not a rollback of unrelated application changes.
+An administrator can switch between Soniox, Microsoft MAI and Gemini without
+another app download. Updated, connected apps check every two seconds plus
+request time; active dictations finish with their original provider.
 
 [**Download the latest release**](../../releases/latest)
 
 ### Pay for audio, without a Laberbacke subscription
 
-Microsoft's MAI introductory rate is **$0.54 per audio hour**, or **$0.009 per
-audio minute**, through December 31, 2026. Five hours of processed audio would
-therefore cost **$2.70** at that rate. Retries and aborted audio can add usage;
-optional text refinement and service infrastructure can add separate costs.
-The shared Azure subscription is billed to the operator. Local tariff figures
-are estimates, and Azure's delayed bill remains authoritative.
+Soniox real-time transcription is listed at **$0.12 per audio hour**, or
+**$0.002 per audio minute**. Five hours of processed audio would therefore cost
+**$0.60** at that provider rate. Retries and aborted audio can add usage;
+optional text refinement and service infrastructure add separate costs. The
+shared provider account is billed to the operator. Local tariff figures are
+estimates; the provider's bill remains authoritative.
 
 For comparison, [Wispr Flow Pro](https://wisprflow.ai/pricing) lists **$15 per
 user per month**, or **$12 per month billed annually**, checked October 29,
@@ -35,7 +34,7 @@ cost models: a paid managed service versus a separately operated app and cloud
 account. This comparison is about published pricing; Wispr's recognition
 speed and quality have not been measured against this build.
 
-MAI pricing source: [Microsoft AI](https://microsoft.ai/news/our-first-streaming-transcription-model/).
+Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
 ### The details that matter while dictating
 
@@ -61,13 +60,13 @@ MAI pricing source: [Microsoft AI](https://microsoft.ai/news/our-first-streaming
 Apple Silicon, macOS 14 or later, a permitted Laberbacke account and microphone
 and Accessibility permissions are required. The download does not create an
 account or broaden the operator's existing access policy. Internet access is
-required for MAI transcription. Builds are self-signed and not notarized; follow
+required for cloud transcription. Builds are self-signed and not notarized; follow
 `INSTALLATION.txt` in the release for the first launch.
 
-MAI streaming is a **Microsoft public preview without an SLA**. Recognition
+The optional MAI fallback is a **Microsoft public preview without an SLA**. Recognition
 quality and time to insertion depend on the recording, network and target app.
 No universal millisecond latency is promised. The privacy notice inside the app
-describes audio sent to Microsoft, filtered recognition hints, local storage
+describes audio sent to the selected provider, filtered recognition hints, local storage
 and optional text processing. Older installations keep their previous speech
 path until updated.
 
