@@ -36,6 +36,22 @@ speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
+### New in 0.7.1: broader insertion and microphone speaker selection
+
+Native apps, browsers and previously unknown editors now share the additional
+Paste-menu route. Laberbacke recognizes more custom text fields and checks the
+foreground again while preparing an insertion. Switching apps stops the old
+attempt and keeps the complete text available; an ambiguous menu response does
+not trigger a duplicate paste.
+
+Soniox speaker labels and microphone levels can now select a clearly stronger
+voice over quieter background speakers, without a saved voice profile. If the
+evidence is unclear, the full transcript is kept. Loudness is only an
+approximation of microphone distance, and overlapping audio is not physically
+separated. Synthetic audio checks passed their defined keyword checks; real-office
+speech and insertion across third-party editors still need broader practical
+validation. This is not a guarantee for every text field.
+
 ### The details that matter while dictating
 
 * **Keep dictating while usage records are saved.** Version 0.6.1 moves local
