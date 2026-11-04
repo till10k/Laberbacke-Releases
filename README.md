@@ -7,22 +7,25 @@ speak, and release it to insert the completed text into your current app.
 Your dictionary, familiar work terms, history and saved recordings stay part
 of the same workflow.
 
-Since version 0.7.0, **Soniox STT v6** is the shared speech path, using the
-European Union region. Audio streams directly from your Mac while you speak.
-Your Laberbacke account supplies a short-lived, single-use access key; the
-operator's permanent provider key stays on the server.
+Version 0.7.2 lets every user choose **Gemini, MAI Transcribe or Soniox** in
+**Settings → Language → Transcription model**. Your choice stays saved for your
+Laberbacke account on this Mac, including after restarting or signing out.
+Another account keeps its own selection.
 
-An administrator can switch between Soniox, Microsoft MAI and Gemini without
-another app download. Updated, connected apps check every two seconds plus
-request time; active dictations finish with their original provider.
+Audio streams directly from your Mac to the selected provider while you speak.
+Your Laberbacke account supplies short-lived access; permanent provider keys stay
+on the server. Active dictations finish on their original model. New recordings
+and audio reprocessing use your current choice. Without a personal choice, the
+shared administrator default applies; Soniox uses the European Union region.
 
 [**Download the latest release**](../../releases/latest)
 
 ### Pay for audio, without a Laberbacke subscription
 
-Soniox real-time transcription is listed at **$0.12 per audio hour**, or
-**$0.002 per audio minute**. Five hours of processed audio would therefore cost
-**$0.60** at that provider rate. Retries and aborted audio can add usage;
+Costs depend on the selected provider. Soniox real-time transcription is listed at **about $0.12 per audio hour**, or
+**roughly $0.002 per audio minute**. Five hours of processed audio would therefore cost
+**about $0.60** at that estimated rate. Actual billing is token-based and
+depends on audio and text context. Retries and aborted audio can add usage;
 optional text refinement and service infrastructure add separate costs. The
 shared provider account is billed to the operator. Local tariff figures are
 estimates; the provider's bill remains authoritative.
@@ -35,6 +38,15 @@ account. This comparison is about published pricing; Wispr's recognition
 speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
+
+### New in 0.7.2: your personal choice of transcription model
+
+Choose Gemini, MAI Transcribe or Soniox without an administrator changing the
+shared default for everyone. Your selection stays saved for your account on
+this Mac. Switching models prepares the next dictation immediately, without
+carrying over a failed provider's retry delay. An active recording keeps its
+original model, including all sections of a long dictation. Recovered offline
+recordings and audio reprocessing use the current choice when they start.
 
 ### New in 0.7.1: broader insertion and microphone speaker selection
 
@@ -79,7 +91,7 @@ account or broaden the operator's existing access policy. Internet access is
 required for cloud transcription. Builds are self-signed and not notarized; follow
 `INSTALLATION.txt` in the release for the first launch.
 
-The optional MAI fallback is a **Microsoft public preview without an SLA**. Recognition
+The MAI option is a **Microsoft public preview without an SLA**. Recognition
 quality and time to insertion depend on the recording, network and target app.
 No universal millisecond latency is promised. The privacy notice inside the app
 describes audio sent to the selected provider, filtered recognition hints, local storage
