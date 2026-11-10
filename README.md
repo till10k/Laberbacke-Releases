@@ -39,6 +39,20 @@ speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
+### New in 0.7.4: your videos stay out of your text
+
+When a video or music plays through your speakers while you dictate — built-in,
+a display or a Bluetooth speaker — Laberbacke mutes that output for as long as
+the dictation runs and turns it back on the moment you let go. Before, the
+Mac's microphone heard the speakers and every model wrote down what the video
+said (measured on November 10, 2026: a test sentence played at 63% volume was
+transcribed almost word for word). Headphones and AirPods are unchanged, and
+nothing is touched while no other app is playing. The first 0.3 seconds after
+you press the key are not covered, Bluetooth speakers with a hands-free
+microphone count as headsets, and outputs without a mute control (many HDMI
+displays) stay unprotected. A real dictation with a video playing through the
+release build has not been measured.
+
 ### New in 0.7.3: long Gemini dictations, back in seconds
 
 Gemini dictations longer than about four minutes no longer keep loading after
