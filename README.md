@@ -39,6 +39,19 @@ speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
+### New in 0.7.3: long Gemini dictations, back in seconds
+
+Gemini dictations longer than about four minutes no longer keep loading after
+you release the key. Gemini ends a live recording by itself 222 seconds after
+it starts (measured against Google's service on November 10, 2026); Laberbacke
+now renews the connection every three minutes in the background, so the text
+is ready seconds after the last section closes. If a connection drops, long
+Gemini recordings are recovered in up to six parallel parts instead of one
+slow pass. Gemini is the default model for new accounts; an existing personal
+choice stays. Long Soniox recordings recover reliably again and about three
+times faster. A real ten-minute Gemini dictation through the app has not yet
+been measured; recordings remain capped at 30 minutes.
+
 ### New in 0.7.2: your personal choice of transcription model
 
 Choose Gemini, MAI Transcribe or Soniox without an administrator changing the
