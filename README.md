@@ -39,6 +39,20 @@ speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
+### New in 0.7.5: let go and keep going
+
+When a release event for Fn, Command or Control goes missing, Laberbacke now
+checks the current key state and catches up after two consecutive checks
+confirm the release. Previously, that recovery depended on macOS reporting
+a disabled keyboard listener, so a held recording could remain active.
+Recordings finish through the normal transcription path, and deliberately
+locked hands-free recordings stay running until you stop them.
+
+The keyboard suite passed 99 tests, including 60 repeated missing-release
+cycles. Confirmation on the originally affected Mac is still pending.
+This targets lost modifier-release events; it does not cover custom keyboard
+shortcuts, a frozen app or an unresponsive audio driver.
+
 ### New in 0.7.4: your videos stay out of your text
 
 When a video or music plays through your speakers while you dictate — built-in,
