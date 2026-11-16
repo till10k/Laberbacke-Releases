@@ -39,6 +39,25 @@ speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
+### New in 0.7.6: when Google stalls, your text doesn't
+
+When Gemini does not answer after you release the key, Laberbacke no longer
+waits for it. Previously it held on for up to 45 seconds before trying again;
+one dictation with 34.1 s of audio took 49.0 s to appear. Now the affected
+stretch of audio goes out a second time, in parallel, as soon as the answer is
+overdue (1.4 s after release for a 28-second dictation), and whichever answer
+arrives first is used. Measured against Google's service on November 15, 2026,
+that second pass delivered in 2.8 s for 6 s of audio, 3.7 s for 28 s and
+5.5–6.3 s for 97 s. In long dictations, a stalled or dropped stretch is redone
+on its own while you keep talking, instead of the whole recording being sent
+again.
+
+Google's more common stall of about five seconds still costs about five
+seconds. The timings come from synthetic speech with clear pauses; one of six
+193-second test runs returned 28 words too many and could not be reproduced. A
+full 30-minute dictation has not been run. The second pass applies to Gemini
+only.
+
 ### New in 0.7.5: let go and keep going
 
 When a release event for Fn, Command or Control goes missing, Laberbacke now
