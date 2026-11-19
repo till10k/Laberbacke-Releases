@@ -39,6 +39,17 @@ speed and quality have not been measured against this build.
 
 Soniox pricing source: [Soniox API pricing](https://soniox.com/pricing).
 
+### New in 0.7.7 — Recover a dictation that stalls
+
+If Chrome releases secure keyboard input while your text field still has
+focus, Laberbacke can finish the paste automatically. If a paste stalls,
+you can copy the finished text from the dictation card. With history enabled,
+you can retry a recording that timed out or came back blank, or transcribe
+what your Mac captured before a microphone dropout. Gemini now checks empty
+passages for audible input and can try the full recording sooner if its
+second attempt fails. We checked the paste in Chrome and reproduced these
+recognition failures with synthetic audio and simulated provider responses.
+
 ### New in 0.7.6: when Google stalls, your text doesn't
 
 When Gemini does not answer after you release the key, Laberbacke no longer
